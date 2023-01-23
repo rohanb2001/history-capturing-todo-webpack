@@ -114,16 +114,39 @@ form .button:hover {
 }
 
 .todo ul li {
+  background-color: #e0edf1;
+  margin: 1.1rem 0;
+  border-radius: 10px;
+  box-shadow: 10px 10px 35px -20px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 35px -20px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 35px -20px rgba(0, 0, 0, 0.75);
+}
+
+.todo ul li .content {
   padding: 15px 40px;
+  border-radius: 10px 10px 0 0;
   background-color: #e0edf1;
   color: #333;
   display: flex;
   justify-content: space-between;
-  margin: 1.3rem 0;
-  border-radius: 5px;
-  box-shadow: 10px 10px 35px -20px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 10px 10px 35px -20px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 35px -20px rgba(0, 0, 0, 0.75);
+}
+
+.todo ul li .progressBar {
+  width: 100%;
+  margin: 2px auto;
+  height: 8px;
+  background-color: #0a5f44;
+  border-radius: 0 0 10px 10px;
+}
+
+.todo ul li .progressBar div {
+  height: 100%;
+  text-align: right;
+  padding: 0 10px;
+  line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+  width: 0;
+  border-radius: 0 0 0 10px;
+  background-color: #d6a0e2;
 }
 
 .todo ul li span {

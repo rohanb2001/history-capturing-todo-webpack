@@ -22,7 +22,12 @@
     <div class="form-content">
       <div class="container">
         <form>
-          <input type="text" name="title" placeholder="What are you up to..." />
+          <input
+            type="text"
+            name="name"
+            placeholder="What are you up to..."
+            autocomplete="off"
+          />
           <button type="submit" class="button">Add Todo</button>
           <select name="sort-by-time" id="sort-by-time">
             <option value="sort-by-time" selected disabled>Sort-by-time</option>
@@ -41,35 +46,16 @@
         <div class="underline"></div>
         <ul class="todos">
           <li>
-            I am a good boy
-            <div>
-              <span><i class="fa-regular fa-pen-to-square"></i></span
-              ><span><i class="fa-solid fa-trash"></i></span>
-              <button class="undo">Undo</button>
+            <div class="content">
+              I am a good boy
+              <div>
+                <span><i class="fa-regular fa-pen-to-square"></i></span
+                ><span><i class="fa-solid fa-trash"></i></span>
+                <button class="undo">Undo</button>
+              </div>
             </div>
-          </li>
-          <li>
-            I am a good boy
-            <div>
-              <span><i class="fa-regular fa-pen-to-square"></i></span
-              ><span><i class="fa-solid fa-trash"></i></span>
-              <button class="undo">Undo</button>
-            </div>
-          </li>
-          <li>
-            I am a good boy
-            <div>
-              <span><i class="fa-regular fa-pen-to-square"></i></span
-              ><span><i class="fa-solid fa-trash"></i></span>
-              <button class="undo">Undo</button>
-            </div>
-          </li>
-          <li>
-            I am a good boy
-            <div>
-              <span><i class="fa-regular fa-pen-to-square"></i></span
-              ><span><i class="fa-solid fa-trash"></i></span>
-              <button class="undo">Undo</button>
+            <div class="progressBar">
+              <div class="bar"></div>
             </div>
           </li>
         </ul>
@@ -81,7 +67,7 @@
         <h3>History</h3>
         <div class="underline"></div>
         <ul class="histories">
-          <li>
+          <!-- <li>
             I am a boy <span class="history-modify">is deleted </span
             ><span>cuurently</span>
           </li>
@@ -93,7 +79,7 @@
             Sorted the list by
             <span class="history-modify">last 9 mins</span
             ><span>cuurently</span>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
