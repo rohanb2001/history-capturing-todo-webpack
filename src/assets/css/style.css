@@ -131,22 +131,31 @@ form .button:hover {
   justify-content: space-between;
 }
 
-.todo ul li .progressBar {
-  width: 100%;
-  margin: 2px auto;
-  height: 8px;
+/* Progress Bar Animation */
+
+.todo ul li .round-time-bar {
+  overflow: hidden;
   background-color: #0a5f44;
   border-radius: 0 0 10px 10px;
 }
 
-.todo ul li .progressBar div {
-  height: 100%;
-  text-align: right;
-  padding: 0 10px;
-  line-height: 22px; /* same as #progressBar height if we want text middle aligned */
-  width: 0;
+.todo ul li .round-time-bar div {
+  height: 5px;
+  animation: roundtime calc(var(--duration) * 1s) steps(var(--duration))
+    forwards;
+  transform-origin: left center;
+  background: linear-gradient(to bottom, #d6a0e2, #d6a0e2);
   border-radius: 0 0 0 10px;
-  background-color: #d6a0e2;
+}
+
+.todo ul li .round-time-bar[data-style="smooth"] div {
+  animation: roundtime calc(var(--duration) * 1s) linear forwards;
+}
+
+@keyframes roundtime {
+  to {
+    transform: scaleX(0);
+  }
 }
 
 .todo ul li span {
