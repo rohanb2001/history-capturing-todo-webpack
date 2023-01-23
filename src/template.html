@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>History Capturing Todo</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <h1>History Capturing Todo</h1>
+      </div>
+    </nav>
+    <div class="form-content">
+      <div class="container">
+        <form>
+          <input type="text" name="title" placeholder="What are you up to..." />
+          <button type="submit" class="button">Add Todo</button>
+          <select name="sort-by-time" id="sort-by-time">
+            <option value="sort-by-time" selected disabled>Sort-by-time</option>
+            <option value="5">5 mins</option>
+            <option value="10">10 mins</option>
+            <option value="15">15 mins</option>
+            <option value="30">30 mins</option>
+          </select>
+        </form>
+      </div>
+    </div>
+
+    <div class="todo">
+      <div class="container">
+        <h3>Todos</h3>
+        <div class="underline"></div>
+        <ul class="todos">
+          <li>
+            I am a good boy
+            <div>
+              <span><i class="fa-regular fa-pen-to-square"></i></span
+              ><span><i class="fa-solid fa-trash"></i></span>
+              <button class="undo">Undo</button>
+            </div>
+          </li>
+          <li>
+            I am a good boy
+            <div>
+              <span><i class="fa-regular fa-pen-to-square"></i></span
+              ><span><i class="fa-solid fa-trash"></i></span>
+              <button class="undo">Undo</button>
+            </div>
+          </li>
+          <li>
+            I am a good boy
+            <div>
+              <span><i class="fa-regular fa-pen-to-square"></i></span
+              ><span><i class="fa-solid fa-trash"></i></span>
+              <button class="undo">Undo</button>
+            </div>
+          </li>
+          <li>
+            I am a good boy
+            <div>
+              <span><i class="fa-regular fa-pen-to-square"></i></span
+              ><span><i class="fa-solid fa-trash"></i></span>
+              <button class="undo">Undo</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="history">
+      <div class="container">
+        <h3>History</h3>
+        <div class="underline"></div>
+        <ul class="histories">
+          <li>
+            I am a boy <span class="history-modify">is deleted </span
+            ><span>cuurently</span>
+          </li>
+          <li>
+            I am a boy <span class="history-modify">is modified to</span> I am a
+            good boy <span>cuurently</span>
+          </li>
+          <li>
+            Sorted the list by
+            <span class="history-modify">last 9 mins</span
+            ><span>cuurently</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

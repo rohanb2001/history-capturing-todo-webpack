@@ -1,0 +1,182 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family: "Montserrat", sans-serif; */
+  font-family: "Roboto", sans-serif;
+  background: #e0eafc;
+  background: -webkit-linear-gradient(to right, #cfdef3, #e0eafc);
+  background: linear-gradient(to right, #cfdef3, #e0eafc);
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1 {
+  color: #b385f0;
+  background-image: -webkit-linear-gradient(
+    0deg,
+    #b385f0 51%,
+    #fe50ce 61%,
+    #e320e1 27%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  letter-spacing: 1.2px;
+  font-size: 2.3rem;
+  text-align: center;
+}
+
+h3 {
+  color: #d87f17;
+  background-image: -webkit-linear-gradient(
+    0deg,
+    #d87f17 26%,
+    #07b4ac 17%,
+    #11dd56 92%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  letter-spacing: 1.2px;
+  font-size: 1.8rem;
+  margin-bottom: 1.7rem;
+  border-bottom: 1.4px solid #b8cacf;
+}
+
+.disable {
+  display: none;
+}
+
+.form-content form {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form-content form input {
+  width: 30%;
+  padding: 0.6rem 0.8rem;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  background: transparent;
+  border: 1px solid #000;
+  font-size: 14px;
+  margin-right: 0.7rem;
+}
+
+form input:focus {
+  border: 1px solid #000;
+}
+
+form select {
+  width: 10%;
+  height: 40px;
+  border: none;
+  border: 1px solid #000;
+  outline: none;
+  margin-right: 0.4rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+form .button {
+  padding: 8px 24px;
+  border: none;
+  outline: none;
+  background: #5fafcf;
+  color: #fff;
+  border-radius: 5px;
+  margin-right: 0.7rem;
+}
+
+form .button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  transition: all 0.2s ease;
+}
+
+.todo ul li {
+  padding: 15px 40px;
+  background-color: #e0edf1;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  margin: 1.3rem 0;
+  border-radius: 5px;
+  box-shadow: 10px 10px 35px -20px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 35px -20px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 35px -20px rgba(0, 0, 0, 0.75);
+}
+
+.todo ul li span {
+  font-size: 14px;
+  margin: 0 2rem;
+}
+
+.todo ul li span:nth-child(1) {
+  color: #9c36b3;
+  cursor: pointer;
+}
+
+.todo ul li span:nth-child(2) {
+  color: #b36436;
+  cursor: pointer;
+}
+
+.todo ul li button {
+  padding: 5px 8px;
+  border: none;
+  outline: none;
+  background: #689bfa;
+  color: #fff;
+  border-radius: 5px;
+  margin-right: 0.7rem;
+}
+
+.todo ul li button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  transition: all 0.2s ease;
+}
+
+.history ul li {
+  position: relative;
+  padding: 15px 40px;
+  background-color: #e0edf1;
+  color: #333;
+  margin: 1.3rem 0;
+  border-radius: 5px;
+  box-shadow: 10px 10px 35px -20px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 35px -20px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 35px -20px rgba(0, 0, 0, 0.75);
+}
+
+.history ul li span {
+  font-size: 14px;
+  color: #9c36b3;
+}
+
+.history ul li span:nth-child(2) {
+  position: absolute;
+  right: 30px;
+  font-size: 12px;
+  font-weight: 400;
+}
