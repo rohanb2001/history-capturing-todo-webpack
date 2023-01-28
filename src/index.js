@@ -74,10 +74,12 @@ function showUI() {
     }, "");
 
     todosUl.innerHTML = str;
+  } else {
+    todosUl.innerHTML = "";
   }
 }
 
-function editDeleteTodo(e) {
+function editTodo(e) {
   if (e.target.classList.contains("fa-pen-to-square")) {
     let content =
       e.target.parentElement.parentElement.parentElement.textContent;
@@ -93,34 +95,28 @@ function editDeleteTodo(e) {
 
 function deleteTodo(e) {
   if (e.target.classList.contains("fa-trash")) {
-    state.todos.forEach((todo, idx) => {
-      console.log("clicked");
-      if (
-        todo.id ===
-        e.target.parentElement.parentElement.parentElement.parentElement.getAttribute(
-          "data-id"
-        )
-      ) {
-        // let obj = { ...todo };
-        // state.todos.splice(idx, 1, obj);
-        state.todos = state.todos.filter(
-          (item, idx) =>
-            (item.id =
-              e.target.parentElement.parentElement.parentElement.parentElement.getAttribute(
-                "data-id"
-              ))
-        );
-        showUI();
+    let foundElement;
+    let foundElementIdx;
+    let element =
+      e.target.parentElement.parentElement.parentElement.parentElement;
+    let elementId =
+      e.target.parentElement.parentElement.parentElement.parentElement.getAttribute(
+        "data-id"
+      );
+    state.todos.forEach((item, idx) => {
+      if (item.id === elementId) {
+        foundElementIdx = idx;
+        foundElement = item;
       }
     });
+
+    console.log(foundElementIdx);
+    state.todos.splice(foundElementIdx, 1);
+    console.log(state.todos);
+    showUI();
+    UndoAnimation();
   }
 }
-
-// if (e.target.classList.contains("fa-trash")) {
-//   console.log("clicked");
-//   state.todos = state.todos.filter((item, idx) => item.id === );
-//   showUI();
-// }
 
 function UndoAnimation() {
   if (progressBar) {
@@ -133,5 +129,5 @@ function UndoAnimation() {
 // Add Event Listeners
 form.addEventListener("submit", handleSubmit);
 form.addEventListener("change", getFormValues);
-todosUl.addEventListener("click", editDeleteTodo);
+todosUl.addEventListener("click", editTodo);
 todosUl.addEventListener("click", deleteTodo);
