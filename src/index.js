@@ -5,6 +5,7 @@ const form = document.querySelector("form");
 const inputField = document.querySelector("form input");
 const progressBar = document.querySelector(".round-time-bar");
 const todosUl = document.querySelector(".todos");
+const historyUl = document.querySelector(".histories");
 
 let formValues = {};
 
@@ -14,16 +15,27 @@ let state = {
     editTodoId: null,
   },
   todos: [],
+  histroyTodo: [],
+  tempData: "",
+  deleteData: "",
 };
 
 function handleSubmit(e) {
   e.preventDefault();
   if (!state.edit.editMode) {
     state.todos.push({ ...formValues, id: uuidv4() });
+    state.histroyTodo.push({
+      ...formValues,
+      id: uuidv4(),
+      replaced: false,
+      delete: false,
+    });
     inputField.value = "";
     showUI();
     UndoAnimation();
+    showHistoryUI();
     formValues = {};
+    console.log(state.histroyTodo);
   } else {
     let foundIdx, foundItem;
     state.todos.forEach((item, idx) => {
@@ -37,10 +49,18 @@ function handleSubmit(e) {
       ...formValues,
       id: uuidv4(),
     });
+    state.histroyTodo.push({
+      ...formValues,
+      id: uuidv4(),
+      replaced: true,
+      delete: false,
+    });
     showUI();
+    showHistoryUI();
     state.edit.editMode = false;
     state.edit.editTodoId = null;
     inputField.value = "";
+    console.log(state.histroyTodo);
   }
 }
 
@@ -79,11 +99,54 @@ function showUI() {
   }
 }
 
+function showHistoryUI() {
+  if (state.histroyTodo.length) {
+    let str = state.histroyTodo.reduce((acc, curr) => {
+      if (curr.replaced === false && curr.delete === false) {
+        return (
+          acc +
+          `
+          <li>
+          ${curr.name} <span class="history-modify">is submitted </span
+          ><span>cuurently</span>
+          </li>
+          `
+        );
+      } else if (curr.replaced === true && curr.delete === false) {
+        return (
+          acc +
+          `
+          <li>
+            ${state.tempData} <span class="history-modify">is modified to</span> ${curr.name}<span>cuurently</span>
+          </li>
+          `
+        );
+      } else if (curr.replaced === false && curr.delete === true) {
+        return (
+          acc +
+          `
+          <li>
+            ${state.deleteData} is
+            <span class="history-modify">deleted</span
+            ><span>cuurently</span>
+          </li>
+          `
+        );
+      }
+    }, "");
+
+    historyUl.innerHTML = str;
+  } else {
+    historyUl.innerHTML = "";
+  }
+}
+
 function editTodo(e) {
   if (e.target.classList.contains("fa-pen-to-square")) {
     let content =
       e.target.parentElement.parentElement.parentElement.textContent;
     let contentText = content.toString().trim().split(" ")[0];
+    state.tempData = contentText;
     state.edit.editMode = true;
     state.edit.editTodoId =
       e.target.parentElement.parentElement.parentElement.parentElement.getAttribute(
@@ -95,14 +158,17 @@ function editTodo(e) {
 
 function deleteTodo(e) {
   if (e.target.classList.contains("fa-trash")) {
-    let foundElement;
-    let foundElementIdx;
-    let element =
-      e.target.parentElement.parentElement.parentElement.parentElement;
+    let foundElement, foundElementIdx;
     let elementId =
       e.target.parentElement.parentElement.parentElement.parentElement.getAttribute(
         "data-id"
       );
+
+    let content =
+      e.target.parentElement.parentElement.parentElement.textContent;
+    let contentText = content.toString().trim().split(" ")[0];
+    state.deleteData = contentText;
+
     state.todos.forEach((item, idx) => {
       if (item.id === elementId) {
         foundElementIdx = idx;
@@ -110,11 +176,16 @@ function deleteTodo(e) {
       }
     });
 
-    console.log(foundElementIdx);
+    state.histroyTodo.push({
+      name: contentText,
+      id: uuidv4(),
+      replaced: false,
+      delete: true,
+    });
     state.todos.splice(foundElementIdx, 1);
-    console.log(state.todos);
     showUI();
     UndoAnimation();
+    showHistoryUI();
   }
 }
 
